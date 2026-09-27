@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1200" viewBox="0 0 1640 1200" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif">
+<defs>
+  <style>
+    .ttl  {font-size:25px;font-weight:700;fill:#0f172a}
+    .sub  {font-size:13.5px;fill:#475569}
+    .band {font-size:13px;font-weight:700;letter-spacing:.6px}
+    .bt   {font-size:15px;font-weight:700;fill:#0f172a}
+    .bt2  {font-size:13.5px;font-weight:700;fill:#0f172a}
+    .bd   {font-size:11.5px;fill:#334155}
+    .mld  {font-size:10.8px;fill:#3b0764}
+    .stg  {font-size:10px;font-weight:700;letter-spacing:.9px;fill:#9333ea}
+    .al   {font-size:10.8px;fill:#475569}
+    .ftr  {font-size:12.5px;fill:#475569;font-style:italic}
+    .flow {stroke:#475569;stroke-width:2.2;fill:none}
+    .ah   {fill:#475569}
+  </style>
+</defs>
+
+<rect width="1640" height="1200" fill="#ffffff"/>
+
+<text class="ttl" x="820" y="40" text-anchor="middle">StockRescue — AI-Powered B2B Inventory Rescue Platform</text>
+<text class="sub" x="820" y="65" text-anchor="middle">System architecture: one React app · one FastAPI service with an in-process ML engine · one PostgreSQL database</text>
+
+<!-- ============ USERS ============ -->
+<rect x="500" y="90" width="640" height="100" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text class="band" x="516" y="112" fill="#64748b">USERS</text>
+<rect x="530" y="116" width="250" height="58" rx="9" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.8"/>
+<text class="bt2" x="655" y="140" text-anchor="middle">Business Owner</text>
+<text class="bd" x="655" y="159" text-anchor="middle">seller — has surplus stock</text>
+<rect x="860" y="116" width="250" height="58" rx="9" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.8"/>
+<text class="bt2" x="985" y="140" text-anchor="middle">Business Buyer</text>
+<text class="bd" x="985" y="159" text-anchor="middle">needs that stock</text>
+
+<!-- ============ FRONTEND ============ -->
+<rect x="290" y="220" width="1060" height="150" rx="14" fill="#f0f9ff" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text class="band" x="308" y="244" fill="#0284c7">FRONTEND — React 18 + Vite + Tailwind + Recharts · Vercel (free)</text>
+<rect x="326" y="258" width="470" height="92" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+<text class="bt" x="561" y="288" text-anchor="middle">Seller Dashboard</text>
+<text class="bd" x="561" y="311" text-anchor="middle">KPIs · inventory · risk detail · listings · matches</text>
+<text class="bd" x="561" y="331" text-anchor="middle">CSV upload with column mapping + preview</text>
+<rect x="846" y="258" width="470" height="92" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+<text class="bt" x="1081" y="288" text-anchor="middle">Buyer Portal</text>
+<text class="bd" x="1081" y="311" text-anchor="middle">needs · marketplace · suggested listings</text>
+<text class="bd" x="1081" y="331" text-anchor="middle">enquiry threads · score explanations</text>
+
+<!-- ============ BACKEND ============ -->
+<rect x="110" y="410" width="1420" height="530" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text class="band" x="128" y="436" fill="#475569">BACKEND — FastAPI + Uvicorn + SQLAlchemy + Pydantic · Render (free web service)</text>
+
+<rect x="157" y="454" width="310" height="84" rx="9" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+<text class="bt2" x="312" y="481" text-anchor="middle">Auth &amp; RBAC</text>
+<text class="bd" x="312" y="502" text-anchor="middle">JWT 30 min + refresh 7 d</text>
+<text class="bd" x="312" y="521" text-anchor="middle">bcrypt · owner / buyer guards</text>
+
+<rect x="489" y="454" width="310" height="84" rx="9" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+<text class="bt2" x="644" y="481" text-anchor="middle">Inventory &amp; Sales API</text>
+<text class="bd" x="644" y="502" text-anchor="middle">products · batch stock · sales</text>
+<text class="bd" x="644" y="521" text-anchor="middle">validated CSV ingest</text>
+
+<rect x="821" y="454" width="310" height="84" rx="9" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+<text class="bt2" x="976" y="481" text-anchor="middle">Analytics API</text>
+<text class="bd" x="976" y="502" text-anchor="middle">dashboard KPIs · at-risk list</text>
+<text class="bd" x="976" y="521" text-anchor="middle">expiry alerts</text>
+
+<rect x="1153" y="454" width="310" height="84" rx="9" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+<text class="bt2" x="1308" y="481" text-anchor="middle">Marketplace API</text>
+<text class="bd" x="1308" y="502" text-anchor="middle">listings · needs · matches</text>
+<text class="bd" x="1308" y="521" text-anchor="middle">enquiries</text>
+
+<!-- tenant scoping strip -->
+<rect x="157" y="548" width="1306" height="32" rx="7" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="810" y="569" text-anchor="middle" font-size="12" font-weight="600" fill="#065f46">tenant-scoping dependency — every request carries a JWT, every query is filtered by business_id (no cross-tenant reads except the public marketplace)</text>
+
+<!-- ============ ML ENGINE ============ -->
+<rect x="150" y="620" width="1280" height="210" rx="12" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text class="band" x="286" y="641" fill="#9333ea">AI / ML ENGINE — in-process, CPU only · scikit-learn + sentence-transformers (no GPU, no paid API)</text>
+
+<rect x="166" y="650" width="220" height="160" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.8"/>
+<text class="stg" x="276" y="674" text-anchor="middle">STAGE 2</text>
+<text class="bt2" x="276" y="696" text-anchor="middle">Feature builder</text>
+<text class="mld" x="276" y="720" text-anchor="middle">avg daily sales 30 / 90 d</text>
+<text class="mld" x="276" y="737" text-anchor="middle">days since last sale</text>
+<text class="mld" x="276" y="754" text-anchor="middle">sell-through · days of cover</text>
+<text class="mld" x="276" y="771" text-anchor="middle">days to expiry · holding days</text>
+<text class="mld" x="276" y="788" text-anchor="middle">price vs category avg</text>
+
+<rect x="414" y="650" width="220" height="160" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.8"/>
+<text class="stg" x="524" y="674" text-anchor="middle">STAGE 3</text>
+<text class="bt2" x="524" y="696" text-anchor="middle">Demand forecast</text>
+<text class="mld" x="524" y="720" text-anchor="middle">HistGradientBoosting</text>
+<text class="mld" x="524" y="737" text-anchor="middle">Regressor on rolling</text>
+<text class="mld" x="524" y="754" text-anchor="middle">windows → next-30-day</text>
+<text class="mld" x="524" y="771" text-anchor="middle">units per SKU</text>
+<text class="mld" x="524" y="788" text-anchor="middle">7-day MA for cold start</text>
+
+<rect x="662" y="650" width="220" height="160" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.8"/>
+<text class="stg" x="772" y="674" text-anchor="middle">STAGE 3–4</text>
+<text class="bt2" x="772" y="696" text-anchor="middle">Risk + classifier</text>
+<text class="mld" x="772" y="720" text-anchor="middle">score 0–100, weighted:</text>
+<text class="mld" x="772" y="737" text-anchor="middle">overstock ·30 staleness ·25</text>
+<text class="mld" x="772" y="754" text-anchor="middle">expiry ·25 trend ·20</text>
+<text class="mld" x="772" y="771" text-anchor="middle">Healthy / Watch / Excess /</text>
+<text class="mld" x="772" y="788" text-anchor="middle">Dead · + reason codes</text>
+
+<rect x="910" y="650" width="220" height="160" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.8"/>
+<text class="stg" x="1020" y="674" text-anchor="middle">STAGE 5–6</text>
+<text class="bt2" x="1020" y="696" text-anchor="middle">Buyer matcher</text>
+<text class="mld" x="1020" y="720" text-anchor="middle">MiniLM embeddings,</text>
+<text class="mld" x="1020" y="737" text-anchor="middle">cosine text sim ·40</text>
+<text class="mld" x="1020" y="754" text-anchor="middle">category ·20 qty fit ·15</text>
+<text class="mld" x="1020" y="771" text-anchor="middle">distance ·15 price ·10</text>
+<text class="mld" x="1020" y="788" text-anchor="middle">→ score + JSONB breakdown</text>
+
+<rect x="1158" y="650" width="220" height="160" rx="9" fill="#f3e8ff" stroke="#9333ea" stroke-width="1.8"/>
+<text class="stg" x="1268" y="674" text-anchor="middle">STAGE 7</text>
+<text class="bt2" x="1268" y="696" text-anchor="middle">Action recommender</text>
+<text class="mld" x="1268" y="720" text-anchor="middle">rules over risk × match:</text>
+<text class="mld" x="1268" y="737" text-anchor="middle">offer to top buyers · list</text>
+<text class="mld" x="1268" y="754" text-anchor="middle">on marketplace · discount</text>
+<text class="mld" x="1268" y="771" text-anchor="middle">locally · liquidate · hold</text>
+<text class="mld" x="1268" y="788" text-anchor="middle">+ suggested discount %</text>
+
+<!-- pipeline arrows -->
+<path class="flow" d="M388,730 L406,730"/><polygon class="ah" points="401,724 401,736 413,730"/>
+<path class="flow" d="M636,730 L654,730"/><polygon class="ah" points="649,724 649,736 661,730"/>
+<path class="flow" d="M884,730 L902,730"/><polygon class="ah" points="897,724 897,736 909,730"/>
+<path class="flow" d="M1132,730 L1150,730"/><polygon class="ah" points="1145,724 1145,736 1157,730"/>
+
+<!-- triggers -->
+<rect x="126" y="846" width="300" height="72" rx="9" fill="#fff7ed" stroke="#f97316" stroke-width="1.8"/>
+<text class="bt2" x="276" y="872" text-anchor="middle">Scheduler — APScheduler</text>
+<text class="bd" x="276" y="892" text-anchor="middle">nightly recompute of stages 2→4</text>
+<text class="bd" x="276" y="909" text-anchor="middle">+ on-demand POST /matching/run</text>
+
+<rect x="870" y="846" width="300" height="72" rx="9" fill="#fff7ed" stroke="#f97316" stroke-width="1.8"/>
+<text class="bt2" x="1020" y="872" text-anchor="middle">On-write trigger</text>
+<text class="bd" x="1020" y="892" text-anchor="middle">new listing or need → score that</text>
+<text class="bd" x="1020" y="909" text-anchor="middle">one row against the other side</text>
+
+<path class="flow" d="M276,844 L276,820"/><polygon class="ah" points="270,823 282,823 276,811"/>
+<path class="flow" d="M1020,844 L1020,820"/><polygon class="ah" points="1014,823 1026,823 1020,811"/>
+
+<!-- API <-> ML -->
+<path class="flow" d="M224,582 L224,640"/><polygon class="ah" points="218,637 230,637 224,649"/>
+<text class="al" x="212" y="597" text-anchor="end">trigger</text>
+<text class="al" x="212" y="611" text-anchor="end">pipeline</text>
+<path class="flow" d="M1268,648 L1268,590"/><polygon class="ah" points="1262,593 1274,593 1268,581"/>
+<text class="al" x="1256" y="597" text-anchor="end">scores + actions</text>
+<text class="al" x="1256" y="611" text-anchor="end">back to the API</text>
+
+<!-- ============ ARROWS: users -> FE -->
+<path class="flow" d="M655,176 L655,196 L561,196 L561,209"/><polygon class="ah" points="555,206 567,206 561,218"/>
+<path class="flow" d="M985,176 L985,196 L1081,196 L1081,209"/><polygon class="ah" points="1075,206 1087,206 1081,218"/>
+
+<!-- FE -> BE -->
+<path class="flow" d="M561,352 L561,398"/><polygon class="ah" points="555,395 567,395 561,407"/>
+<text class="al" x="572" y="382">HTTPS + JWT</text>
+<path class="flow" d="M1081,352 L1081,398"/><polygon class="ah" points="1075,395 1087,395 1081,407"/>
+<text class="al" x="1092" y="382">HTTPS + JWT</text>
+
+<!-- BE -> DB -->
+<path d="M820,950 L820,966" stroke="#475569" stroke-width="2.4" fill="none"/>
+<polygon class="ah" points="814,963 826,963 820,975"/>
+<polygon class="ah" points="814,953 826,953 820,941"/>
+<text class="al" x="805" y="960" text-anchor="end">reads products, inventory, sales</text>
+<text class="al" x="838" y="960">writes risk_scores, matches, listings, needs, enquiries</text>
+
+<!-- ============ DATABASE ============ -->
+<ellipse cx="820" cy="1120" rx="400" ry="22" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.8"/>
+<rect x="420" y="1000" width="800" height="120" fill="#fef9c3"/>
+<line x1="420" y1="1000" x2="420" y2="1120" stroke="#ca8a04" stroke-width="1.8"/>
+<line x1="1220" y1="1000" x2="1220" y2="1120" stroke="#ca8a04" stroke-width="1.8"/>
+<ellipse cx="820" cy="1000" rx="400" ry="22" fill="#fefce8" stroke="#ca8a04" stroke-width="1.8"/>
+<text class="bt" x="820" y="1035" text-anchor="middle">PostgreSQL — Neon / Supabase (free tier, 0.5 GB)</text>
+<text class="bd" x="820" y="1060" text-anchor="middle">businesses · users · products · inventory (batch-level, expiry) · sales</text>
+<text class="bd" x="820" y="1081" text-anchor="middle">risk_scores * · listings · needs · matches * · enquiries</text>
+<text x="820" y="1103" text-anchor="middle" font-size="10.8" font-style="italic" fill="#713f12">* derived tables — safe to recompute and overwrite on every run</text>
+
+<text class="ftr" x="820" y="1172" text-anchor="middle">One database · one backend service · no message queues · no separate ML microservice · no GPU · no paid APIs — every component on a free tier.</text>
+</svg>
